@@ -1,43 +1,10 @@
 #include <iostream>
-#include <fstream>
 #include <vector>
 #include <string>
 #include "Lexer.hpp"
 #include "AST.hpp"
+#include "util.h"
 using namespace std;
-
-vector<string> getFileLines(const char *filePath, char explodeOn)
-{
-    vector<string> lines;
-    
-    ifstream inputFile;
-    
-    inputFile.open(filePath);
-    
-    if (inputFile.is_open())
-    {
-        string tmpLn = "";
-        
-        char tmpChar;
-        
-        while (inputFile.get(tmpChar))
-        {
-            if (tmpChar != explodeOn)
-            {
-                tmpLn = tmpLn + tmpChar;
-            }
-            else
-            {
-                lines.push_back(tmpLn);
-                tmpLn = "";
-            }
-        }
-        
-        inputFile.close();
-    }
-    
-    return lines;
-}
 
 int main(int argc, const char **argv)
 {
