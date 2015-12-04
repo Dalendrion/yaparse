@@ -13,9 +13,7 @@ vector<ASTNode> AST::build(vector<ListToken> tokens)
         ListToken thisTok = tokens.at(i);
         
         if (!this->isToBeIgnored(thisTok))
-        {
-            printf("'%s' is a(n) '%s' token\n", thisTok.getTokenValue().c_str(), thisTok.getTokenType().c_str());
-            
+        {            
             // TODO (Gigabyte Giant): Figure out a good way to build up an AST.
         }
     }
