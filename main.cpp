@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include "Lexer.hpp"
+#include "AST.hpp"
 using namespace std;
 
 vector<string> getFileLines(const char *filePath, char explodeOn)
@@ -52,6 +53,9 @@ int main(int argc, const char **argv)
         }
         myLex.printList();
     }
+    
+    AST myAST = AST();
+    myAST.build(myLex.getTokenList());
     
     return 0;
 }
