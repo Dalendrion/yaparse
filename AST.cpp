@@ -25,11 +25,17 @@ vector<ASTNode> AST::build(vector<ListToken> tokens)
 
 bool AST::isToBeIgnored(ListToken token)
 {
-    if (token.getTokenType() == "Whitespace" ||
-        token.getTokenType() == "Ignored" ||
-        token.getTokenType() == "Unknown")
+    vector<string> tokensToIgnore = {
+        "Whitespace",
+        "Ignored",
+        "Unknown"
+    };
+    
+    for (size_t i = 0; i < tokensToIgnore.size(); i++)
     {
-        return true;
+        if (token.getTokenType() == tokensToIgnore.at(i)) {
+            return true;
+        }
     }
     
     return false;
