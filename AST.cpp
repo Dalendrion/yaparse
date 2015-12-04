@@ -8,7 +8,27 @@ vector<ASTNode> AST::build(vector<ListToken> tokens)
 {
     vector<ASTNode> ASTNodes;
     
-    // TODO
+    for (size_t i = 0; i < tokens.size(); i++)
+    {
+        ListToken thisTok = tokens.at(i);
+        
+        if (!this->isToBeIgnored(thisTok))
+        {
+            printf("'%s' is a(n) '%s' token\n", thisTok.getTokenValue().c_str(), thisTok.getTokenType().c_str());
+        }
+    }
     
     return ASTNodes;
+}
+
+bool AST::isToBeIgnored(ListToken token)
+{
+    if (token.getTokenType() == "Whitespace" ||
+        token.getTokenType() == "Ignored" ||
+        token.getTokenType() == "Unknown")
+    {
+        return true;
+    }
+    
+    return false;
 }

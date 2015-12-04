@@ -13,6 +13,9 @@ class AST
     public:
         AST();
         vector<ASTNode> build(vector<ListToken> tokens);
+    
+    private:
+        bool isToBeIgnored(ListToken token);
 };
 
 #endif

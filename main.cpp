@@ -18,7 +18,6 @@ int main(int argc, const char **argv)
         {
             myLex.tokenize(fileLines.at(lnInd));
         }
-        myLex.printList();
     }
     
     AST myAST = AST();
